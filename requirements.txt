@@ -6,3 +6,6 @@ pypdf
 tiktoken
 ragas
 datasets
+langchain-groq
+langchain-huggingface
+langgraph

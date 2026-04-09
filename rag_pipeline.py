@@ -1,5 +1,5 @@
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 
@@ -29,7 +29,7 @@ def build_index_for_paper(pdf_path: str, paper_id: str) -> FAISS:
 def load_all_indexes(paper_ids: list[str]) -> dict:
     return {
         pid: FAISS.load_local(
-            f"faiss/index/{pid}",
+            f"faiss_index/{pid}",
             EMBEDDING_MODEL,
             allow_dangerous_deserialization=True
         )
