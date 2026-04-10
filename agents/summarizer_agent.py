@@ -29,7 +29,7 @@ def make_summarizer_tool(indexes: dict[str, FAISS], llm):
             )
             context = "\n\n".join([d.page_content for d in docs])
             result = chain.invoke({"paper_id": paper_id, "context": context})
-            summaries.append(f"=== {paper_id} ===\n{result['text']}")  
+            summaries.append(f"=== {paper_id} ===\n{result.content}")
         return '\n\n'.join(summaries)
     
     return paper_summarizer
